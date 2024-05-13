@@ -66,9 +66,9 @@ createApp({
 
         startIntervallo() {
             this.intervallo = setInterval(() => {
-                if (this.imgAttiva < this.slides.length) {
-                    this.imgAttiva += 1
-                } else this.imgAttiva = 0
+                if (this.imgAttiva == (this.slides.length - 1)) {
+                    this.imgAttiva = 0
+                } else this.imgAttiva += 1
             }, 3000);
         },
 
@@ -76,9 +76,9 @@ createApp({
     },
     mounted() {
         this.intervallo = setInterval(() => {
-            if (this.imgAttiva < (this.slides.length - 1)) {
-                this.imgAttiva += 1
-            } else this.imgAttiva = 0
+            if (this.imgAttiva == (this.slides.length - 1)) {
+                this.imgAttiva = 0
+            } else this.imgAttiva += 1
         }, 3000);
 
         console.log('app vue montanta correttamente')
