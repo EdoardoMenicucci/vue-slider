@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slider</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
+</head>
+
+<body>
+
+    <div id="app">
+
+        <div class="container">
+            <div class="slider-wrapper" tabindex="0">
+
+                <div class="item">
+                    <img v-for="elemento , i in slides" :src=elemento.image :class="controlloImg(i,'active')"
+                        alt="image" />
+                    <div class="text">
+                        <!-- qua andra il titolo -->
+                        <h3>{{slides[imgAttiva].title}}</h3>
+                        <p>
+                            <!--qua andra la descrizione-->
+                            {{slides[imgAttiva].text}}
+                        </p>
+                    </div>
+                </div>
+
+                <div class="thumbs" @mouseenter="stopIntervallo()" @mouseleave="startIntervallo()">
+                    <div @click="previous()" class="prev"></div>
+                    <div @click="next()" class="next"></div>
+                    <div class="thumb" v-for="elemento , i in slides" @click="miniToImg(i)"
+                        :class="controlloImg(i,'active')" alt="Svezia">
+                        <img :src=elemento.image />
+                    </div>
+                    <!-- <div class="thumb">
+                        <img v-for="elemento , i in slides" :src=elemento.image @click="miniToImg(i)"
+                            :class="controlloImg(i,'active')" alt="Svezia" />
+                    </div> -->
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
